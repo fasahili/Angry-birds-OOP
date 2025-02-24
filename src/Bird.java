@@ -1,30 +1,44 @@
-import behavior.Attack;
-import behavior.Fly;
-import behavior.MakeSound;
-
-public class Bird implements Fly, Attack, MakeSound {
+public abstract class Bird {
 
     protected String name;
     protected String shape;
     protected String sound;
     protected int damage;
 
+    public abstract void fly();
+    public abstract void attack();
+    public abstract void makeSound();
+
     public Bird(String name, String shape, String sound, int damage) {
-        this.name = name;
-        this.shape = shape;
-        this.sound = sound;
+        setDamage(damage);
+        setShape(shape);
+        setName(name);
+        setSound(sound);
+    }
+
+    protected void setDamage(int damage) {
         this.damage = damage;
     }
-
-    public void fly() {
-        System.out.println(name + " Bird is flying straight");
+    protected void setName(String name) {
+        this.name = name;
+    }
+    protected void setShape(String shape) {
+        this.shape = shape;
+    }
+    protected void setSound(String sound) {
+        this.sound = sound;
     }
 
-    public void attack() {
-        System.out.println(name + " Bird hits the target with " + damage + " damage points");
+    protected int getDamage() {
+        return damage;
     }
-
-    public void makeSound() {
-        System.out.println(name + " Bird makes a " + sound + " sound");
+    protected String getShape() {
+        return shape;
+    }
+    protected String getName() {
+        return name;
+    }
+    protected String getSound() {
+        return sound;
     }
 }

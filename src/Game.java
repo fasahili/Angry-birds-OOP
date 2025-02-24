@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Game {
-    private List<Bird> birds ;
+    private final List<Bird> birds ;
 
     public Game(List<Bird> birds) {
         this.birds = birds;
